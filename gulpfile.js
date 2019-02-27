@@ -4,6 +4,7 @@ const gulp = require('gulp');
 const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync');
 const del = require('del');
+const sass = require('gulp-sass');
 const cleanCSS = require('gulp-clean-css');
 const uglify = require('gulp-uglify');
 const pump = require('pump');
@@ -22,8 +23,9 @@ const jsfiles = [
 /* Style */
 gulp.task('dev:styles', function () {
 
-  return gulp.src('./src/scss/styles.scss')
+  return gulp.src('./src/scss/style.scss')
     .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./css'))
     .pipe(browserSync.stream({ match: '**/*.css' }));
@@ -43,7 +45,8 @@ gulp.task('dev:js', function (cb) {
 /* Style */
 gulp.task('prod:styles', function () {
 
-  return gulp.src('./src/scss/styles.scss')
+  return gulp.src('./src/scss/style.scss')
+    .pipe(sass().on('error', sass.logError))
     .pipe(cleanCSS())
     .pipe(gulp.dest('./css'))
 });

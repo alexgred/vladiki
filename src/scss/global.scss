@@ -1,0 +1,22 @@
+/* 
+ * Global styles
+ */
+
+
+/* Basic
+=================== */
+body {
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  color: $font-color;
+}
+
+a {
+  color: $link-color;
+  transition: color 0.3s;
+
+  &:hover {
+    color: darken($link-color, 20%);
+  }
+}
+

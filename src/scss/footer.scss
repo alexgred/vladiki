@@ -1,0 +1,20 @@
+/* 
+ * Footer
+ */
+
+
+footer {
+  font-size: 16px;
+
+  a {
+    text-decoration: none;
+    transition: border-color 0.3s;
+    border-bottom: 1px solid $link-color;
+
+    &:hover {
+      text-decoration: none;
+      border-color: transparent;
+    }
+  }
+}
+
